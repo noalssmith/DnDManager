@@ -7,7 +7,8 @@ def index(request):
         name = request.POST.get("name")
         if name:
             return redirect("dashboard", name=name)
-    return render(request, "welcome.html")
+    names = Player.objects.all()
+    return render(request, "welcome.html", {"names":names})
 
 def dashboard(request, name):
     current_activity = Activity.objects.filter(player=name)
