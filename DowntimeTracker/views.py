@@ -25,14 +25,15 @@ def dashboard(request, name):
 
     if len(current_activitys) > 0:
         current_activity = current_activitys[0]
-        current_activity.days_completed = (datetime.date.today() - current_activity.date_started).days
-        percentage = int(round(current_activity.days_completed / current_activity.days, 2) * 100)
+        days_completed = (datetime.date.today() - current_activity.date_started).days + current_activity.days_completed
+        percentage = int(round(days_completed / current_activity.days, 2) * 100)
     else:
         current_activity = None
         percentage = 0
     return render(request, "dashboard.html",
                    {"name": name, 
-                    "currentActivity": current_activity, 
+                    "currentActivity": current_activity,
+                    "daysCompleted": days_completed, 
                     "percentage":  percentage, 
                     "allActivities":zip(all_activities,status)})
 
