@@ -30,10 +30,10 @@
             <div class="column">
                 <h2>Activities</h2>
                 <table style="width: 100%;" class="activity-list">
-                    {% for activity in allActivities %}
+                    {% for activity, status in allActivities %}
                     <td class="row">
                         <p style="display: inline-block; text-align: left;" class="column"><strong>{{ activity.title }}</strong><br>{{ activity.description }}</p>
-                        <button class="align-right; column; button">
+                        <button class="align-right; column; button" {{ status|yesno:'disabled,,'}}>
                             <strong>Begin</strong>
                         </button>
                     </td>

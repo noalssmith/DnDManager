@@ -12,21 +12,28 @@ def index(request):
     return render(request, "welcome.html", {"names":names})
 
 def dashboard(request, name):
+    current_activitys = Activity.objects.filter(player=name)
     all_activities = Activity.objects.all()
+    status = [a.player == name for a in all_activities]
+
     if request.method == "POST":
         title = request.POST.get("title")
         description = request.POST.get("description")
         days = request.POST.get("days")
         new_activity = Activity(title=title, description=description, days=days, player="", days_completed=0, hidden=False, date_started=None)
         new_activity.save()
-    current_activitys = Activity.objects.filter(player=name)
+
     if len(current_activitys) > 0:
         current_activity = current_activitys[0]
         percentage = int(round(current_activity.days_completed / current_activity.days, 2) * 100)
     else:
         current_activity = None
         percentage = 0
-    return render(request, "dashboard.html", {"name": name, "currentActivity": current_activity, "percentage":  percentage, "allActivities":all_activities})
+    return render(request, "dashboard.html",
+                   {"name": name, 
+                    "currentActivity": current_activity, 
+                    "percentage":  percentage, 
+                    "allActivities":zip(all_activities,status)})
 
 def populate(request):
     ...
