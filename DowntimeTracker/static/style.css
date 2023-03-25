@@ -81,11 +81,12 @@ button:disabled {
 }
 .progress {
     height: 20px;
-    width: 1300px;
+    width: 85%;
     background-color: peachpuff;
     border-radius: 5px;
     margin-bottom: 20px;
-    margin-left: 100px;
+    margin-left: 75px;
+    margin-right: 100px;
 }
   
 .progress-bar {
