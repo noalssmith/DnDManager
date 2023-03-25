@@ -25,14 +25,14 @@
             <div class="column">
                 <h2>Activities</h2>
                 <table style="width: 100%;">
+                    {% for activity in allActivities %}
                     <td class="row">
-                        <p style="display: inline-block; text-align: left;" class="column"><strong>Activity: </strong><br>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mattis blandit turpis, vitae euismod ipsum venenatis sed. Donec fringilla massa eu nulla lobortis dapibus. Nullam eget lorem orci. Curabitur iaculis risus pellentesque orci tristique posuere. Vivamus sit amet eros eleifend, rhoncus nulla at, porta dui.
-                        </p>
+                        <p style="display: inline-block; text-align: left;" class="column"><strong>{{ activity.title }}</strong><br>{{ activity.description }}</p>
                         <button class="align-right; column; button">
                             <strong>Begin</strong>
                         </button>
                     </td>
+                    {% endfor %}
                 </table>
             </div>
             <div class="column">
