@@ -25,6 +25,7 @@ def dashboard(request, name):
 
     if len(current_activitys) > 0:
         current_activity = current_activitys[0]
+        current_activity.days_completed = (datetime.date.today() - current_activity.date_started).days
         percentage = int(round(current_activity.days_completed / current_activity.days, 2) * 100)
     else:
         current_activity = None
