@@ -18,7 +18,7 @@
                 <h2>{{ currentActivity.title }}</h2>
                 <h3>{{ currentActivity.days_completed }} / {{ currentActivity.days }} Day's Completed</h3>
                 <div class="progress">
-                    <div class="progress-bar" id="my-progress-bar">
+                    <div class="progress-bar" data-percentage="{{percentage}}" id="my-progress-bar">
                     </div>
                 </div>
             {% else %}
@@ -42,16 +42,21 @@
             </div>
             <div class="column">
                 <h2>Suggest an Activity</h2>
-                <textarea>
-                    Add stuff here
-                </textarea>
+                {% block content %}
+                    <form method="POST">
+                        {% csrf_token %}
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title" required><br><br>
+                        <label for="description">Description:</label>
+                        <textarea id="description" name="description" required></textarea><br><br>
+                        <label for="days">Number of Days:</label>
+                        <input type="number" id="days" name="days" min="1" max="365" required><br><br>
+                        <input type="submit" value="Create Post">
+                    </form>
+                {% endblock %}
             </div>
         </div>
-        <script src="{% static 'dashboard.js' %}"></script>
-        <script type="text/javascript">
-            var percentage = "{{ percentage }}";
-            var progressBar = document.getElementById("my-progress-bar");
-            progressBar.style.width = percentage + '%';
+        <script type="text/javascript" src="{% static 'dashboard.js' %}">
         </script>
 	</body>
 </html>
