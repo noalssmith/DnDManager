@@ -13,6 +13,15 @@
     display: flex;
     align-items: center;
 }
+
+.row:not(:last-child) {
+    border-bottom: coral 1px solid;
+}
+
+.main-row {
+    display: flex;
+    align-items: top;
+}
   
 .column {
     flex: 50%;
@@ -41,19 +50,19 @@ select {
 }
 
 button {
-    margin-top: 20px;
+    background-color: coral;
+    color: white;
     padding: 10px 20px;
     font-size: 18px;
-    background-color: coral;
-    color: #333;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: peachpuff;
+    color: coral;
+    border: 2px solid coral;
 }
 
 .button {
@@ -90,6 +99,14 @@ body {
     text-align: center;
   }
   form {
+    margin: 0 auto;
+    max-width: 500px;
+    padding: 20px;
+    border: 2px solid coral;
+    border-radius: 10px;
+    background-color: white;
+  }
+  .activity-list {
     margin: 0 auto;
     max-width: 500px;
     padding: 20px;

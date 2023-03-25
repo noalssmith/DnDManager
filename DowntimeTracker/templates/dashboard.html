@@ -26,10 +26,10 @@
             {% endif %}
         </div>
         <h1><u>Activity Menu</u></h1>
-        <div class="row">
+        <div class="main-row">
             <div class="column">
                 <h2>Activities</h2>
-                <table style="width: 100%;">
+                <table style="width: 100%;" class="activity-list">
                     {% for activity in allActivities %}
                     <td class="row">
                         <p style="display: inline-block; text-align: left;" class="column"><strong>{{ activity.title }}</strong><br>{{ activity.description }}</p>
