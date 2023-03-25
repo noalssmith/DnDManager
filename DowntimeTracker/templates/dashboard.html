@@ -1,1 +1,43 @@
-<h1>Dashboard</h1>
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<title>Dashboard</title>
+		<meta charset="utf-8">
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+
+	</head>
+	<body>
+        <div class="fixed-header">
+            <h1 style="padding-left: 25px; background-color: coral;"><strong>Dashboard</strong></h1>
+        </div>
+        <div>
+            <h1><u>Current Activity</u></h1>
+            <h2>Activity Name</h2>
+            <p>Completion Time: 000</p>
+            <p>Time Remaining: 000</p>
+        </div>
+        <h1><u>Activity Menu</u></h1>
+        <div class="row">
+            <div class="column">
+                <h2>Activities</h2>
+                <table>
+                    <td>
+                        Activity
+                        <button>
+                            Begin
+                        </button>
+                    </td>
+                </table>
+            </div>
+            <div class="column">
+                <h2>Suggest an Activity</h2>
+                <textarea>
+                    Add stuff here
+                </textarea>
+            </div>
+        </div>
+	</body>
+</html>
