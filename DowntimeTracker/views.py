@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Activity
+from .models import Activity, Player
 import datetime
 
 # Create your views here.
@@ -8,7 +8,8 @@ def index(request):
         name = request.POST.get("name")
         if name:
             return redirect("dashboard", name=name)
-    return render(request, "welcome.html")
+    names = Player.objects.all()
+    return render(request, "welcome.html", {"names":names})
 
 def dashboard(request, name):
     current_activitys = Activity.objects.filter(player=name)
