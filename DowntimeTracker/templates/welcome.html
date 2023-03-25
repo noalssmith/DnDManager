@@ -1,46 +1,10 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Welcome!</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            text-align: center;
-        }
-
-        h1 {
-            margin-top: 100px;
-            font-size: 48px;
-            color: #333;
-        }
-
-        select {
-            margin-top: 50px;
-            padding: 10px;
-            font-size: 24px;
-            border: none;
-            border-radius: 5px;
-            background-color: #fff;
-            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
-        }
-
-        button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 18px;
-            background-color: #008CBA;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #006B8F;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
     <h1>Welcome!</h1>
