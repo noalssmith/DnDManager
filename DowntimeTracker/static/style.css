@@ -1,0 +1,25 @@
+.fixed-header{
+    color: black;
+    width: 100%;
+    position: fixed;        
+    background: peachpuff;
+    padding: 10px 0;
+    top: 0;
+    left: 0;
+    position: fixed;
+}
+
+body{
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: 15px;
+}
+
+.row {
+    display: flex;
+}
+  
+.column {
+    flex: 50%;
+}
+
