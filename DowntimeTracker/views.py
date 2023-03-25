@@ -17,4 +17,5 @@ def dashboard(request, name):
         percentage = int(round(current_activity.days_completed / current_activity.days, 2) * 100)
     else:
         current_activity = None
-    return render(request, "dashboard.html", {"name": name, "currentActivity": current_activity, "percentage": percentage},)
+        percentage = 0
+    return render(request, "dashboard.html", {"name": name, "currentActivity": current_activity, "percentage":  percentage})
