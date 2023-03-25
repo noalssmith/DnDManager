@@ -14,7 +14,7 @@ def index(request):
 
 def dashboard(request, name):
     current_activitys = Activity.objects.filter(player=name)
-    all_activities = Activity.objects.all()
+    all_activities = Activity.objects.filter(hidden=False)
     status = [a.player == name for a in all_activities]
 
     if request.method == "POST":
