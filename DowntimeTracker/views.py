@@ -11,4 +11,9 @@ def index(request):
     return render(request, "welcome.html", {"names":names})
 
 def dashboard(request, name):
-    return render(request, "dashboard.html", {"name": name})
+    current_activity = Activity.objects.filter(player=name)
+    if len(current_activity) > 0:
+        current_activity = current_activity[0]
+    else:
+        current_activity = None
+    return render(request, "dashboard.html", {"name": name, "currentActivity": current_activity},)

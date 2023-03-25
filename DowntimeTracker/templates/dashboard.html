@@ -14,11 +14,18 @@
         </div>
         <div>
             <h1><u>Current Activity</u></h1>
-            <h2>Activity Name</h2>
-            <h3>50 / 100 Day's Completed</h3>
-            <div class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-volumemin="0" aria-valuemax="100"></div>
-            </div>
+            {% if currentActivity %}
+                <h2>{{ currentActivity.title }}</h2>
+                <h3>{{ currentActivity.days_completed }} / {{ currentActivity.days }} Day's Completed</h3>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" 
+                        aria-valuenow="{{ currentActivity.days_completed }}" 
+                        aria-valuemin="0" 
+                        aria-valuemax="{{ currentActivity.days}}"></div>
+                </div>
+            {% else %}
+                <h2>Begin an activity to see it here</h2>
+            {% endif %}
         </div>
         <h1><u>Activity Menu</u></h1>
         <div class="row">
