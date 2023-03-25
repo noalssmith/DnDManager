@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from DowntimeTracker.models import Activity
+from DowntimeTracker.models import Activity, Player
 
 # Create your views here.
 def index(request):
