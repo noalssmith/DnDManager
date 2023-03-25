@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib import admin
 
 
 class Player(models.Model):
@@ -21,7 +22,7 @@ class Activity(models.Model):
     title = models.CharField(max_length=30, help_text='Name of this type of Activity')
     description = models.CharField(max_length=150, help_text="The description of the Activity")
     player = models.CharField(max_length=30, help_text="Name of player currently working", default="")
-    date_started = models.DateField()
+    date_started = models.DateField(null=True, blank=True)
     days = models.IntegerField(default=7) #TODO: Figure out params
     days_completed = models.IntegerField(default=0) #TODO: Figure out params
 
@@ -40,5 +41,4 @@ class Activity(models.Model):
 
     def __str__(self):
         return self.title
-    
 

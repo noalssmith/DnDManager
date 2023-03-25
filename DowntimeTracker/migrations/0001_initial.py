@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(help_text='Name of this type of Activity', max_length=30)),
                 ('description', models.CharField(help_text='The description of the Activity', max_length=150)),
                 ('player', models.CharField(default='', help_text='Name of player currently working', max_length=30)),
-                ('date_started', models.DateField(null=True)),
+                ('date_started', models.DateField(null=True, blank=True)),
                 ('days', models.IntegerField(default=7)),
                 ('days_completed', models.IntegerField(default=0)),
                 ('hidden', models.BooleanField(default=False, help_text='Can all players see this activity?')),

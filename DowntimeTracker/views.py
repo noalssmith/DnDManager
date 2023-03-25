@@ -20,7 +20,7 @@ def dashboard(request, name):
         title = request.POST.get("title")
         description = request.POST.get("description")
         days = request.POST.get("days")
-        new_activity = Activity(title=title, description=description, days=days, player="", days_completed=0, hidden=False, date_started=None)
+        new_activity = Activity(title=title, description=description, days=days, player="", days_completed=0, hidden=True, date_started=None)
         new_activity.save()
 
     if len(current_activitys) > 0:
@@ -30,6 +30,7 @@ def dashboard(request, name):
     else:
         current_activity = None
         percentage = 0
+        days_completed = 0
     return render(request, "dashboard.html",
                    {"name": name, 
                     "currentActivity": current_activity,
