@@ -18,10 +18,8 @@
                 <h2>{{ currentActivity.title }}</h2>
                 <h3>{{ currentActivity.days_completed }} / {{ currentActivity.days }} Day's Completed</h3>
                 <div class="progress">
-                    <div class="progress-bar" role="progressbar" 
-                        aria-valuenow="{{ currentActivity.days_completed }}" 
-                        aria-valuemin="0" 
-                        aria-valuemax="{{ currentActivity.days}}"></div>
+                    <div class="progress-bar" id="my-progress-bar">
+                    </div>
                 </div>
             {% else %}
                 <h2>Begin an activity to see it here</h2>
@@ -50,5 +48,10 @@
             </div>
         </div>
         <script src="{% static 'dashboard.js' %}"></script>
+        <script type="text/javascript">
+            var percentage = "{{ percentage }}";
+            var progressBar = document.getElementById("my-progress-bar");
+            progressBar.style.width = percentage + '%';
+        </script>
 	</body>
 </html>
