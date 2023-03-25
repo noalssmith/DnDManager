@@ -34,12 +34,19 @@
                 <h2>Activities</h2>
                 <table style="width: 100%;" class="activity-list">
                     {% for activity, status in allActivities %}
-                    <td class="row">
-                        <p style="display: inline-block; text-align: left;" class="column"><strong>{{ activity.title }}</strong><br>{{ activity.description }}</p>
-                        <button class="align-right; column; button" {{ status|yesno:'disabled,,'}}>
-                            <strong>Begin</strong>
-                        </button>
-                    </td>
+                    {% block activity %}
+                    <form action="/downtimeTracker/begin_activity" method="post">
+                        {% csrf_token %}
+                        <td class="row">
+                            <p style="display: inline-block; text-align: left;" class="column"><strong>{{ activity.title }}</strong><br>{{ activity.description }}</p>
+                            <input type='hidden' name="title" value="{{activity.title}}"></input>
+                            <input type='hidden' name="name" value="{{name}}"></input>
+                            <input type="submit" value="Begin" class="align-right; column; button" {{ status|yesno:'disabled,,'}}>
+                                <strong></strong>
+                            </input>
+                        </td>
+                    </form>
+                    {% endblock %}
                     {% endfor %}
                 </table>
             </div>
@@ -54,7 +61,7 @@
                         <textarea id="description" name="description" required></textarea><br><br>
                         <label for="days">Number of Days:</label>
                         <input type="number" id="days" name="days" min="1" max="365" required><br><br>
-                        <input type="submit" value="Create Post">
+                        <input class='button' type="submit" value="Create Post">
                     </form>
                 {% endblock %}
             </div>

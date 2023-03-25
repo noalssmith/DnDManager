@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Activity, Player
 import datetime
+import json
 
 # Create your views here.
 def index(request):
@@ -37,6 +38,33 @@ def dashboard(request, name):
                     "daysCompleted": days_completed, 
                     "percentage":  percentage, 
                     "allActivities":zip(all_activities,status)})
+
+
+def begin_activity(request):
+    print('Checkpoint: Begin_activity')
+    title = request.POST.get('title')
+    name = request.POST.get('name')
+    acts = Activity.objects.filter(player=name)
+    for act in acts:
+        act.player = '';
+        act.days_completed = (datetime.date.today() - act.date_started).days + act.days_completed
+        act.date_started = None
+        act.save()
+
+    acts = Activity.objects.filter(title=title)
+    if(len(acts)>0):
+        acts[0].player = name
+        acts[0].date_started = datetime.date.today()
+        acts[0].save()
+    else:
+        print("ERROR: No activite called",title)
+
+    print('\t',title)
+    print('\t',name)
+    return redirect("dashboard", name=name)
+
+
+
 
 def populate(request):
     ...
