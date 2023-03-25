@@ -81,9 +81,11 @@ button:disabled {
 }
 .progress {
     height: 20px;
+    width: 1300px;
     background-color: peachpuff;
     border-radius: 5px;
     margin-bottom: 20px;
+    margin-left: 100px;
 }
   
 .progress-bar {
@@ -98,7 +100,7 @@ button:disabled {
 }
 
 body {
-    background-color: peachpuff;
+    background-color: #FFE4D0;
   }
   h1 {
     color: coral;
